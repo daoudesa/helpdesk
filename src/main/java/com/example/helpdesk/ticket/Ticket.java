@@ -1,6 +1,8 @@
 package com.example.helpdesk.ticket;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -17,4 +19,10 @@ public class Ticket{
 
     private String title;
     private String description;
+
+    @Enumerated(EnumType.STRING)
+    private TicketStatus status = TicketStatus.OPEN;
+
+    @Enumerated(EnumType.STRING)
+    private TicketPriority priority = TicketPriority.MEDIUM;
 }
